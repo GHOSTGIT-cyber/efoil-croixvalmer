@@ -6,22 +6,22 @@
 
 <title>eFoil à La Croix-Valmer — initiation & location à la plage de Gigaro</title>
 <meta name="description" content="Location & initiation eFoil à la plage de Gigaro, La Croix-Valmer. Volez en silence sur les eaux translucides du Cap Lardier. Débutants bienvenus, moniteur dédié, matériel Lift. Réservation.">
-<link rel="canonical" href="https://efoilcotedazur.fr/croix-valmer/">
-<meta name="theme-color" content="#F4631F">
+<link rel="canonical" href="https://efoil-croix-valmer.fr/">
+<meta name="theme-color" content="#0892A5">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="eFoil Croix-Valmer">
 <meta property="og:title" content="eFoil à La Croix-Valmer — plage de Gigaro">
 <meta property="og:description" content="Volez au-dessus des eaux les plus claires du golfe, entre pins et criques du Cap Lardier. Initiation encadrée, matériel Lift.">
-<meta property="og:image" content="https://efoilcotedazur.fr/medias/web/cv/hero-orange.webp">
+<meta property="og:image" content="https://efoil-croix-valmer.fr/medias/web/cv/hero-bleu.webp">
 <meta name="twitter:card" content="summary_large_image">
 
 <!--
   ════════════════════════════════════════════════════════════════════════════
-  Landing « La Croix-Valmer / Gigaro » — ÉDITIONS ORANGE ⇄ BLEU sur une SEULE page (bascule de couleur), identité efoilcotedazur.
+  Landing « La Croix-Valmer / Gigaro » — édition BLEU, identité eFoil Croix-Valmer.
   DA hybride : hero cinématique full-bleed + système de marque EFCA
-  (Inter, orange #F4631F + turquoise #00A7C7, boutons pilule, rating bar, vagues).
+  (Inter, bleu #0892A5 + accent orange #F4631F, boutons pilule, rating bar, vagues).
   Imagerie : 100 % VUES AÉRIENNES (curation efca-photo-tri.json → medias/web/cv/).
   Bloc autonome wp:html (entre les marqueurs DÉBUT / FIN). N'altère aucun fichier existant.
   ════════════════════════════════════════════════════════════════════════════
@@ -43,12 +43,12 @@ html,body{margin:0}
 
 <style>
 /* ════════════════════════════════════════════════════════════════════════════
-   eFoil · La Croix-Valmer — ORANGE (défaut) ⇄ BLEU via [data-theme] (namespace .cvx-, zéro sélecteur global)
+   eFoil · La Croix-Valmer — édition BLEU (namespace .cvx-, zéro sélecteur global)
    ════════════════════════════════════════════════════════════════════════════ */
 .cvx-root{
-  /* — Tokens de marque EFCA (orange) — */
-  --p:#F4631F;--p-hover:#DB5413;--p-border:#C44A0F;
-  --acc:#00A7C7;--acc-deep:#0E7C8B;
+  /* — Tokens de marque EFCA (édition bleue) — */
+  --p:#0892A5;--p-hover:#0A7F90;--p-border:#0A6C7A;
+  --acc:#F4631F;--acc-deep:#C44A0F;
   --secondary:#C7EAEF;--mint:#DCF2F5;
   --cream:#FCF8F3;--bg:#F9F9F9;--white:#fff;--ink:#0F2830;
   --text:#222;--text-muted:#5b6a6f;--on-p:#fff;--star:#F4631F;
@@ -61,7 +61,7 @@ html,body{margin:0}
   --gap:clamp(1rem,2.4vw,1.6rem);
   --pill:999px;--radius:1rem;--radius-xs:.5rem;
   --ease:cubic-bezier(.22,1,.36,1);
-  --glow:0 6px 18px rgba(244,99,31,.34);
+  --glow:0 6px 18px rgba(8,146,165,.34);
   --shadow:0 10px 30px rgba(15,40,48,.10);
 
   font-family:var(--ff);color:var(--text);background:var(--bg);
@@ -76,20 +76,7 @@ html,body{margin:0}
 .cvx-root ::selection{background:var(--p);color:#fff}
 .cvx-root :focus-visible{outline:3px solid var(--p);outline-offset:2px;border-radius:var(--radius-xs)}
 
-/* — Bascule de thème : ORANGE (défaut) ⇄ BLEU — surcharge des tokens de marque — */
-.cvx-root[data-theme="bleu"]{
-  --p:#0892A5;--p-hover:#0A7F90;--p-border:#0A6C7A;
-  --acc:#F4631F;--acc-deep:#C44A0F;
-  --glow:0 6px 18px rgba(8,146,165,.34);
-}
-.cvx-themetgl{display:inline-flex;align-items:center;gap:.5rem;border:2px solid currentColor;background:transparent;color:#fff;
-  font-family:var(--ff);font-weight:700;font-size:.82rem;letter-spacing:.02em;cursor:pointer;line-height:1;
-  padding:.5rem .9rem;border-radius:var(--pill);transition:background-color .25s var(--ease),color .25s var(--ease)}
-.cvx-header--solid .cvx-themetgl{color:var(--ink)}
-.cvx-themetgl:hover{background:rgba(255,255,255,.14)}
-.cvx-header--solid .cvx-themetgl:hover{background:rgba(15,40,48,.07)}
-.cvx-themetgl__dot{width:.95rem;height:.95rem;border-radius:50%;background:var(--acc);box-shadow:0 0 0 2px rgba(255,255,255,.55);transition:background-color .25s var(--ease)}
-.cvx-themetgl__txt b{font-weight:800;text-transform:capitalize}
+/* — Édition bleue : tokens définis sur .cvx-root ci-dessus (plus de bascule de thème) — */
 
 .cvx-container{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--px)}
 .cvx-section{padding-block:clamp(3rem,7vw,6.5rem)}
@@ -329,7 +316,7 @@ html,body{margin:0}
 }
 </style>
 
-<div class="cvx-root" id="cvx-top" data-theme="orange">
+<div class="cvx-root" id="cvx-top">
 
   <!-- ═══════ HEADER ═══════ -->
   <header class="cvx-header" id="cvx-header">
@@ -338,9 +325,6 @@ html,body{margin:0}
       <span class="cvx-logo-text"><i>e</i><b>Foil</b> Croix-Valmer</span>
     </a>
     <div style="display:flex;align-items:center;gap:.6rem">
-      <button class="cvx-themetgl" id="cvx-theme-btn" type="button" aria-label="Changer la couleur du thème (orange ou bleu)">
-        <span class="cvx-themetgl__dot" aria-hidden="true"></span><span class="cvx-themetgl__txt">Thème&nbsp;<b id="cvx-theme-label">bleu</b></span>
-      </button>
       <a class="cvx-btn cvx-btn--primary cvx-header__cta" href="#cvx-book">Réserver</a>
     </div>
   </header>
@@ -349,8 +333,8 @@ html,body{margin:0}
   <section class="cvx-hero" aria-label="La Croix-Valmer — plage de Gigaro">
     <div class="cvx-hero__media">
       <picture>
-        <source id="cvx-hero-src" media="(max-width:768px)" srcset="medias/web/cv/hero-orange-v.webp">
-        <img id="cvx-hero-img" src="medias/web/cv/hero-orange.webp" width="1920" height="1080" fetchpriority="high" decoding="async"
+        <source id="cvx-hero-src" media="(max-width:768px)" srcset="medias/web/cv/hero-bleu-v.webp">
+        <img id="cvx-hero-img" src="medias/web/cv/hero-bleu.webp" width="1920" height="1080" fetchpriority="high" decoding="async"
              alt="Vue aérienne : eaux translucides et littoral du sud du golfe de Saint-Tropez.">
       </picture>
     </div>
@@ -621,8 +605,8 @@ html,body{margin:0}
 <!-- ═══ JSON-LD : SportsActivityLocation + FAQPage ═══ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":["LocalBusiness","SportsActivityLocation"],"@id":"https://efoilcotedazur.fr/croix-valmer/#base","name":"eFoil Croix-Valmer — plage de Gigaro","description":"Location et initiation d'eFoil encadrées au départ de la plage de Gigaro, La Croix-Valmer — sud du golfe de Saint-Tropez, réserve du Cap Lardier.","url":"https://efoilcotedazur.fr/croix-valmer/","image":"https://efoilcotedazur.fr/medias/web/cv/hero-orange.webp","telephone":"{{TÉLÉPHONE}}","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Plage de Gigaro","addressLocality":"La Croix-Valmer","postalCode":"83420","addressRegion":"Var","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":43.1856,"longitude":6.5639},"areaServed":"Sud du golfe de Saint-Tropez · Gigaro · Cap Lardier","sameAs":["{{LIEN_INSTAGRAM}}","{{LIEN_FICHE_GOOGLE}}"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"19:00"}]},
-{"@type":"FAQPage","@id":"https://efoilcotedazur.fr/croix-valmer/#faq","mainEntity":[
+{"@type":["LocalBusiness","SportsActivityLocation"],"@id":"https://efoil-croix-valmer.fr/#base","name":"eFoil Croix-Valmer — plage de Gigaro","description":"Location et initiation d'eFoil encadrées au départ de la plage de Gigaro, La Croix-Valmer — sud du golfe de Saint-Tropez, réserve du Cap Lardier.","url":"https://efoil-croix-valmer.fr/","image":"https://efoil-croix-valmer.fr/medias/web/cv/hero-bleu.webp","telephone":"{{TÉLÉPHONE}}","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Plage de Gigaro","addressLocality":"La Croix-Valmer","postalCode":"83420","addressRegion":"Var","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":43.1856,"longitude":6.5639},"areaServed":"Sud du golfe de Saint-Tropez · Gigaro · Cap Lardier","sameAs":["{{LIEN_INSTAGRAM}}","{{LIEN_FICHE_GOOGLE}}"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"19:00"}]},
+{"@type":"FAQPage","@id":"https://efoil-croix-valmer.fr/#faq","mainEntity":[
 {"@type":"Question","name":"Combien coûte une session ?","acceptedAnswer":{"@type":"Answer","text":"Une session débute à {{PRIX}}, matériel et encadrement compris. Le tarif varie selon la durée et la formule."}},
 {"@type":"Question","name":"Faut-il déjà savoir foiler ?","acceptedAnswer":{"@type":"Answer","text":"Non. La session est accessible aux débutants, accompagnés par un moniteur. La plupart des riders volent leurs premiers mètres dès la première séance."}},
 {"@type":"Question","name":"Combien de temps dure une session ?","acceptedAnswer":{"@type":"Answer","text":"Comptez 1 h à 1 h 30 sur place, briefing compris."}},
@@ -659,27 +643,7 @@ html,body{margin:0}
     rail.addEventListener('click',function(e){if(moved)e.preventDefault();},true);
   }
 
-  /* — Bascule de thème ORANGE ⇄ BLEU (persistée, swap du hero) — */
-  (function(){
-    var btn=document.getElementById('cvx-theme-btn'),label=document.getElementById('cvx-theme-label');
-    var himg=document.getElementById('cvx-hero-img'),hsrc=document.getElementById('cvx-hero-src');
-    var meta=document.querySelector('meta[name="theme-color"]');
-    var T={orange:{color:'#F4631F',next:'bleu',img:'medias/web/cv/hero-orange.webp',v:'medias/web/cv/hero-orange-v.webp'},
-           bleu:{color:'#0892A5',next:'orange',img:'medias/web/cv/hero-bleu.webp',v:'medias/web/cv/hero-bleu-v.webp'}};
-    function apply(t,swap){
-      var d=T[t]||T.orange; root.setAttribute('data-theme',t);
-      if(label) label.textContent=d.next;
-      if(meta) meta.setAttribute('content',d.color);
-      if(swap){ if(himg) himg.src=d.img; if(hsrc) hsrc.srcset=d.v; }
-      try{localStorage.setItem('cvxTheme',t);}catch(e){}
-    }
-    var saved; try{saved=localStorage.getItem('cvxTheme');}catch(e){}
-    if(saved&&T[saved]&&saved!==root.getAttribute('data-theme')) apply(saved,true);
-    else apply(root.getAttribute('data-theme')||'orange',false);
-    if(btn) btn.addEventListener('click',function(){
-      apply((root.getAttribute('data-theme')||'orange')==='orange'?'bleu':'orange',true);
-    });
-  })();
+  /* (édition bleue : plus de bascule de thème) */
 })();
 </script>
 <!-- ═══════════════════ ===== BLOC wp:html — FIN ===== ═══════════════════ -->
