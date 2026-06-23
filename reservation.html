@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réserver une session eFoil — La Croix-Valmer / Beauvallon</title>
+<meta name="description" content="Réservez votre session d'eFoil à la plage de Gigaro (La Croix-Valmer) ou à Beauvallon. Choisissez votre formule et votre horaire.">
+<meta name="theme-color" content="#0892A5">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://efoil-croix-valmer.fr/reservation.html">
+<style>
+:root{
+  --p:#0892A5;--p-hover:#0A7F90;--p-border:#0A6C7A;--acc:#F4631F;
+  --ink:#0F2830;--text:#222;--text-muted:#5b6a6f;--cream:#FCF8F3;--bg:#F9F9F9;--white:#fff;
+  --secondary:#C7EAEF;--mint:#DCF2F5;
+  --ff:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --pill:999px;--radius:1rem;--radius-xs:.5rem;--ease:cubic-bezier(.22,1,.36,1);
+  --shadow:0 10px 30px rgba(15,40,48,.10);--px:clamp(1.1rem,4vw,1.25rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--ff);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em;color:var(--ink);font-weight:900;margin:0}
+img{display:block;max-width:100%}
+
+.rv-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem var(--px);
+  background:var(--white);box-shadow:0 1px 6px rgba(0,0,0,.06);position:sticky;top:0;z-index:10}
+.rv-brand{display:flex;align-items:center;gap:.6rem;font-weight:900;font-size:1.1rem;color:var(--ink)}
+.rv-brand img{height:32px;width:auto}
+.rv-back{font-weight:700;font-size:.92rem;color:var(--p);text-decoration:none}
+.rv-back:hover{text-decoration:underline}
+
+.rv-hero{background:var(--ink);color:#fff;padding:clamp(2.2rem,6vw,3.4rem) var(--px)}
+.rv-wrap{max-width:760px;margin-inline:auto}
+.rv-hero .rv-label{display:inline-block;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--secondary);margin-bottom:.4rem}
+.rv-hero h1{color:#fff;font-size:clamp(1.9rem,1.3rem+2.6vw,2.8rem);margin-bottom:.6rem}
+.rv-hero h1 em{font-style:normal;color:var(--p)}
+.rv-hero p{color:var(--secondary);margin:0;max-width:46ch}
+
+.rv-main{padding:clamp(1.6rem,5vw,2.8rem) var(--px)}
+.rv-card{max-width:760px;margin-inline:auto;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1.4rem,4vw,2.2rem)}
+
+.rv-grid{display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media(min-width:620px){.rv-grid{grid-template-columns:1fr 1fr}}
+.rv-field{display:block}
+.rv-field.rv-full{grid-column:1/-1}
+.rv-field label{display:block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.35rem}
+.rv-field input,.rv-field select,.rv-field textarea{
+  width:100%;font-family:var(--ff);font-size:1rem;padding:.75rem .9rem;border:1.5px solid #d6dee0;
+  border-radius:var(--radius-xs);background:var(--white);color:var(--ink)}
+.rv-field select{cursor:pointer}
+.rv-field textarea{min-height:96px;resize:vertical}
+.rv-field input:focus-visible,.rv-field select:focus-visible,.rv-field textarea:focus-visible{outline:2px solid var(--p);outline-offset:1px}
+
+.rv-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;width:100%;margin-top:1.4rem;
+  font-weight:700;font-size:1.06rem;padding:1rem 1.7rem;border-radius:var(--pill);border:2px solid var(--p);
+  background:var(--p);color:#fff;cursor:pointer;text-decoration:none;transition:background-color .25s var(--ease),transform .25s var(--ease)}
+.rv-btn:hover{background:var(--p-hover);border-color:var(--p-border);transform:translateY(-2px)}
+.rv-note{margin-top:1rem;font-size:.86rem;color:var(--text-muted);text-align:center}
+.rv-note a{color:var(--p);font-weight:600}
+
+.rv-facts{display:flex;flex-wrap:wrap;gap:.5rem .7rem;margin:0 0 1.4rem;padding:0;list-style:none}
+.rv-facts li{background:var(--mint);color:var(--p-border);font-weight:600;font-size:.82rem;padding:.4rem .9rem;border-radius:var(--pill)}
+
+.rv-footer{padding:1.6rem var(--px);text-align:center;color:var(--text-muted);font-size:.85rem}
+</style>
+</head>
+<body>
+
+<header class="rv-header">
+  <a class="rv-brand" href="index.html">
+    <img src="assets/img/logo.webp" alt="" width="120" height="64" onerror="this.style.display='none'">
+    <span><i style="font-style:normal;color:var(--p)">e</i>Foil Croix-Valmer</span>
+  </a>
+  <a class="rv-back" href="index.html">← Retour au site</a>
+</header>
+
+<section class="rv-hero">
+  <div class="rv-wrap">
+    <span class="rv-label">Réservation</span>
+    <h1>Réservez votre <em>session eFoil</em></h1>
+    <p>Choisissez le lieu, la formule et l'horaire. On vous recontacte pour confirmer la disponibilité — matériel, combinaison et moniteur inclus.</p>
+  </div>
+</section>
+
+<main class="rv-main">
+  <form class="rv-card" id="rv-form">
+    <ul class="rv-facts">
+      <li>Durée 1 h – 1 h 30</li>
+      <li>Dès 100 €/session</li>
+      <li>Tous niveaux</li>
+    </ul>
+
+    <div class="rv-grid">
+      <div class="rv-field">
+        <label for="rv-lieu">Lieu</label>
+        <select id="rv-lieu" name="lieu">
+          <option>La Croix-Valmer · plage de Gigaro</option>
+          <option>Beauvallon · Grimaud</option>
+        </select>
+      </div>
+      <div class="rv-field">
+        <label for="rv-formule">Formule</label>
+        <select id="rv-formule" name="formule">
+          <option>Découverte — 150 €</option>
+          <option>Pack 3 sessions — 360 €</option>
+          <option>Pack 5 sessions — 500 €</option>
+          <option>Bon cadeau (à offrir)</option>
+        </select>
+      </div>
+      <div class="rv-field">
+        <label for="rv-date">Date souhaitée</label>
+        <input type="date" id="rv-date" name="date">
+      </div>
+      <div class="rv-field">
+        <label for="rv-horaire">Horaire</label>
+        <select id="rv-horaire" name="horaire">
+          <option>15 h 00</option>
+          <option>16 h 30</option>
+          <option>18 h 00</option>
+        </select>
+      </div>
+      <div class="rv-field">
+        <label for="rv-nom">Votre nom</label>
+        <input type="text" id="rv-nom" name="nom" autocomplete="name" placeholder="Prénom Nom">
+      </div>
+      <div class="rv-field">
+        <label for="rv-tel">Téléphone</label>
+        <input type="tel" id="rv-tel" name="tel" autocomplete="tel" placeholder="06 ..">
+      </div>
+      <div class="rv-field rv-full">
+        <label for="rv-email">Email</label>
+        <input type="email" id="rv-email" name="email" autocomplete="email" placeholder="vous@email.fr">
+      </div>
+      <div class="rv-field rv-full">
+        <label for="rv-msg">Message (optionnel)</label>
+        <textarea id="rv-msg" name="message" placeholder="Nombre de participants, niveau, questions…"></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="rv-btn">Envoyer ma demande</button>
+    <p class="rv-note">Confirmation par email ou téléphone. Aucun paiement à cette étape.</p>
+  </form>
+</main>
+
+<footer class="rv-footer">
+  © <span id="rv-year">2026</span> eFoil Croix-Valmer · Plage de Gigaro &amp; Beauvallon
+</footer>
+
+<script>
+(function(){
+  var y=document.getElementById('rv-year');if(y){var d=new Date();if(!isNaN(d))y.textContent=d.getFullYear();}
+
+  /* Pré-sélection « Bon cadeau » si on arrive depuis le bouton Offrir (reservation.html?offrir=1) */
+  try{
+    if(/[?&]offrir=1/.test(location.search)){
+      var f=document.getElementById('rv-formule');
+      for(var i=0;i<f.options.length;i++){ if(/cadeau/i.test(f.options[i].text)){ f.selectedIndex=i; break; } }
+    }
+  }catch(e){}
+
+  /* À DÉFAUT de back-end : on compose un email de demande pré-rempli. */
+  var DEST='contact@efoil-croix-valmer.fr'; /* TODO: remplacer par la vraie adresse */
+  var form=document.getElementById('rv-form');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var g=function(id){return (document.getElementById(id)||{}).value||'';};
+    var sujet='Demande de réservation eFoil — '+g('rv-formule');
+    var corps=[
+      'Bonjour,',
+      '',
+      'Je souhaite réserver une session eFoil :',
+      '• Lieu : '+g('rv-lieu'),
+      '• Formule : '+g('rv-formule'),
+      '• Date : '+(g('rv-date')||'à définir'),
+      '• Horaire : '+g('rv-horaire'),
+      '',
+      'Mes coordonnées :',
+      '• Nom : '+g('rv-nom'),
+      '• Téléphone : '+g('rv-tel'),
+      '• Email : '+g('rv-email'),
+      '',
+      (g('rv-msg')? 'Message : '+g('rv-msg')+'\n\n' : '')+'Merci !'
+    ].join('\n');
+    window.location.href='mailto:'+DEST+'?subject='+encodeURIComponent(sujet)+'&body='+encodeURIComponent(corps);
+  });
+})();
+</script>
+</body>
+</html>

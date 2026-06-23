@@ -240,7 +240,12 @@ html,body{margin:0}
 
 /* — Pricing — */
 .cvx-pricing{display:grid;gap:var(--gap);grid-template-columns:1fr}
-@media(min-width:820px){.cvx-pricing{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:560px){.cvx-pricing{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.cvx-pricing{grid-template-columns:repeat(4,1fr)}}
+.cvx-field{display:block;text-align:left;margin-bottom:.6rem}
+.cvx-field span{display:block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.3rem}
+.cvx-select{width:100%;font-family:var(--ff);font-size:1rem;padding:.7rem .9rem;border:1.5px solid #d6dee0;border-radius:var(--radius-xs);background:var(--white);color:var(--ink);cursor:pointer}
+.cvx-select:focus-visible{outline:2px solid var(--p);outline-offset:1px}
 .cvx-price{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
 .cvx-price--feature{outline:3px solid var(--p);outline-offset:-3px;position:relative}
 .cvx-price--feature::before{content:"Le + choisi";position:absolute;top:1rem;right:1rem;background:var(--p);color:#fff;
@@ -513,16 +518,28 @@ html,body{margin:0}
       </div>
       <div class="cvx-pricing" style="margin-top:clamp(1.6rem,4vw,2.6rem)">
         <div class="cvx-price cvx-reveal">
-          <div class="cvx-price__head"><p class="cvx-label" style="color:var(--ink)">Découverte</p><p class="cvx-price__price">{{PRIX}}<small>la session · 1 h</small></p></div>
-          <div class="cvx-price__body"><ul class="cvx-price__list"><li>Briefing + initiation encadrée</li><li>Matériel Lift &amp; combinaison fournis</li><li>Moniteur dédié &amp; assurance</li></ul><a class="cvx-btn cvx-btn--primary cvx-btn--block" href="#cvx-book">Réserver</a></div>
-        </div>
-        <div class="cvx-price cvx-price--feature cvx-reveal">
-          <div class="cvx-price__head"><p class="cvx-label" style="color:var(--ink)">Progression</p><p class="cvx-price__price">{{PRIX_PACK}}<small>pack 3 sessions</small></p></div>
-          <div class="cvx-price__body"><ul class="cvx-price__list"><li>Plusieurs sessions pour progresser</li><li>Suivi personnalisé du moniteur</li><li>Idéal pour gagner en autonomie</li></ul><a class="cvx-btn cvx-btn--primary cvx-btn--block" href="#cvx-book">Réserver</a></div>
+          <div class="cvx-price__head"><p class="cvx-label" style="color:var(--ink)">Découverte</p><p class="cvx-price__price">150 €<small>la session · 1 h</small></p></div>
+          <div class="cvx-price__body"><ul class="cvx-price__list"><li>Briefing + initiation encadrée</li><li>Matériel Lift &amp; combinaison fournis</li><li>Moniteur dédié &amp; assurance</li></ul><a class="cvx-btn cvx-btn--primary cvx-btn--block" href="reservation.html">Réserver</a></div>
         </div>
         <div class="cvx-price cvx-reveal">
-          <div class="cvx-price__head"><p class="cvx-label" style="color:var(--ink)">Offrir</p><p class="cvx-price__price">Bon cadeau<small>montant libre</small></p></div>
-          <div class="cvx-price__body"><ul class="cvx-price__list"><li>Une expérience à offrir</li><li>Valable sur toute la saison</li><li>Détails &amp; validité à confirmer</li></ul><a class="cvx-btn cvx-btn--secondary cvx-btn--block" href="#cvx-book">Offrir</a></div>
+          <div class="cvx-price__head"><p class="cvx-label" style="color:var(--ink)">Pack 3 sessions</p><p class="cvx-price__price">360 €<small>soit 120 €/session</small></p></div>
+          <div class="cvx-price__body"><ul class="cvx-price__list"><li>3 sessions pour progresser</li><li>Suivi personnalisé du moniteur</li><li>Idéal pour gagner en autonomie</li></ul><a class="cvx-btn cvx-btn--primary cvx-btn--block" href="reservation.html">Réserver</a></div>
+        </div>
+        <div class="cvx-price cvx-price--feature cvx-reveal">
+          <div class="cvx-price__head"><p class="cvx-label" style="color:var(--ink)">Pack 5 sessions</p><p class="cvx-price__price">500 €<small>soit 100 €/session</small></p></div>
+          <div class="cvx-price__body"><ul class="cvx-price__list"><li>5 sessions — le meilleur tarif</li><li>Moins de 120 € la session</li><li>Progression complète, en autonomie</li></ul><a class="cvx-btn cvx-btn--primary cvx-btn--block" href="reservation.html">Réserver</a></div>
+        </div>
+        <div class="cvx-price cvx-reveal">
+          <div class="cvx-price__head"><p class="cvx-label" style="color:var(--ink)">Offrir</p><p class="cvx-price__price">Bon cadeau<small>une session à offrir</small></p></div>
+          <div class="cvx-price__body"><ul class="cvx-price__list"><li>Offrez l'expérience eFoil</li><li>Valable toute la saison</li></ul>
+            <label class="cvx-field"><span>Formule à offrir</span>
+              <select class="cvx-select" aria-label="Formule à offrir">
+                <option>Découverte — 150 €</option>
+                <option>Pack 3 sessions — 360 €</option>
+                <option>Pack 5 sessions — 500 €</option>
+              </select>
+            </label>
+            <a class="cvx-btn cvx-btn--secondary cvx-btn--block" href="reservation.html?offrir=1">Offrir</a></div>
         </div>
       </div>
       <p class="cvx-rating" style="display:flex;justify-content:center;margin-top:1.4rem"><span class="cvx-stars" aria-hidden="true">★★★★★</span> <strong>5,0</strong> · 230 avis Google</p>
@@ -550,7 +567,7 @@ html,body{margin:0}
             <p class="cvx-label" style="color:var(--secondary)">Réserver</p>
             <h2 id="cvx-book-h">Réservez votre session à Gigaro</h2>
             <p class="cvx-book__sub">Choisissez votre créneau. On s'occupe du reste : matériel, encadrement, et les eaux claires de Gigaro pour vous, le temps d'une session.</p>
-            <ul class="cvx-book__facts"><li>Durée <b>1 h – 1 h 30</b></li><li>Dès <b>{{PRIX}}</b></li><li>Tous niveaux</li></ul>
+            <ul class="cvx-book__facts"><li>Durée <b>1 h – 1 h 30</b></li><li>Dès <b>150 €</b></li><li>Tous niveaux</li></ul>
           </div>
           <div class="cvx-book__panel">
             <h3>Disponibilités</h3>
@@ -569,7 +586,7 @@ html,body{margin:0}
     <div class="cvx-container">
       <div class="cvx-head cvx-head--center cvx-reveal"><p class="cvx-label">FAQ</p><h2 id="cvx-faq-h">Questions fréquentes</h2></div>
       <div class="cvx-faq" style="margin-top:1.6rem">
-        <details><summary>Combien coûte une session ?</summary><div class="cvx-faq__a">Une session débute à {{PRIX}}, matériel et encadrement compris. Le tarif varie selon la durée et la formule. Le détail s'affiche au moment de la réservation.</div></details>
+        <details><summary>Combien coûte une session ?</summary><div class="cvx-faq__a">Une session débute à 150 €, matériel et encadrement compris. Le tarif varie selon la durée et la formule. Le détail s'affiche au moment de la réservation.</div></details>
         <details><summary>Faut-il déjà savoir foiler ?</summary><div class="cvx-faq__a">Non. La session est accessible aux débutants, accompagnés par un moniteur. La puissance se règle à la télécommande, à votre rythme — la plupart des riders volent leurs premiers mètres dès la première séance.</div></details>
         <details><summary>Combien de temps dure une session ?</summary><div class="cvx-faq__a">Comptez 1 h à 1 h 30 sur place, briefing compris. Le temps de vol effectif dépend du niveau et de l'autonomie de la batterie.</div></details>
         <details><summary>Que se passe-t-il en cas de mauvais temps ?</summary><div class="cvx-faq__a">La sécurité prime. En cas de conditions défavorables, la session est reportée ou remboursée. Nous vous tenons informé la veille si besoin.</div></details>
@@ -607,7 +624,7 @@ html,body{margin:0}
 {"@context":"https://schema.org","@graph":[
 {"@type":["LocalBusiness","SportsActivityLocation"],"@id":"https://efoil-croix-valmer.fr/#base","name":"eFoil Croix-Valmer — plage de Gigaro","description":"Location et initiation d'eFoil encadrées au départ de la plage de Gigaro, La Croix-Valmer — sud du golfe de Saint-Tropez, réserve du Cap Lardier.","url":"https://efoil-croix-valmer.fr/","image":"https://efoil-croix-valmer.fr/medias/web/cv/hero-bleu.webp","telephone":"{{TÉLÉPHONE}}","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Plage de Gigaro","addressLocality":"La Croix-Valmer","postalCode":"83420","addressRegion":"Var","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":43.1856,"longitude":6.5639},"areaServed":"Sud du golfe de Saint-Tropez · Gigaro · Cap Lardier","sameAs":["{{LIEN_INSTAGRAM}}","{{LIEN_FICHE_GOOGLE}}"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"19:00"}]},
 {"@type":"FAQPage","@id":"https://efoil-croix-valmer.fr/#faq","mainEntity":[
-{"@type":"Question","name":"Combien coûte une session ?","acceptedAnswer":{"@type":"Answer","text":"Une session débute à {{PRIX}}, matériel et encadrement compris. Le tarif varie selon la durée et la formule."}},
+{"@type":"Question","name":"Combien coûte une session ?","acceptedAnswer":{"@type":"Answer","text":"Une session débute à 150 €, matériel et encadrement compris. Le tarif varie selon la durée et la formule."}},
 {"@type":"Question","name":"Faut-il déjà savoir foiler ?","acceptedAnswer":{"@type":"Answer","text":"Non. La session est accessible aux débutants, accompagnés par un moniteur. La plupart des riders volent leurs premiers mètres dès la première séance."}},
 {"@type":"Question","name":"Combien de temps dure une session ?","acceptedAnswer":{"@type":"Answer","text":"Comptez 1 h à 1 h 30 sur place, briefing compris."}},
 {"@type":"Question","name":"Que se passe-t-il en cas de mauvais temps ?","acceptedAnswer":{"@type":"Answer","text":"La sécurité prime. En cas de conditions défavorables, la session est reportée ou remboursée."}},
