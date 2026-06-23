@@ -15,6 +15,9 @@ medias/_contact-sheet.jpg
 # Garde les previews Como Beauvallon (HTML léger, pas de binaires)
 # medias/como-beauvallon/ → inclus intentionnellement
 
+# === Agents SEO/GEO (outillage interne, hors site) ===
+11+Agents+SEO+_+GEO+-+RosoAI/
+
 # === OS / IDE ===
 .DS_Store
 Thumbs.db
