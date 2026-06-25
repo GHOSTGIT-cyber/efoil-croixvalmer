@@ -18,6 +18,9 @@ medias/_contact-sheet.jpg
 # === Agents SEO/GEO (outillage interne, hors site) ===
 11+Agents+SEO+_+GEO+-+RosoAI/
 
+# === Fichiers locaux hors site (outils internes, notes) ===
+_local/
+
 # === OS / IDE ===
 .DS_Store
 Thumbs.db
