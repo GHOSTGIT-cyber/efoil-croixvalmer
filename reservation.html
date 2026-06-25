@@ -4,16 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Réserver une session eFoil — La Croix-Valmer / Beauvallon</title>
-<meta name="description" content="Réservez votre session d'eFoil à la plage de Gigaro (La Croix-Valmer) ou à Beauvallon. Choisissez votre formule et votre horaire.">
+<meta name="description" content="Réservez votre session d'eFoil à la plage de Gigaro (La Croix-Valmer) ou à Beauvallon. Choisissez votre formule, votre date et votre horaire.">
 <meta name="theme-color" content="#0892A5">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://efoil-croix-valmer.fr/reservation.html">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
 <style>
 :root{
   --p:#0892A5;--p-hover:#0A7F90;--p-border:#0A6C7A;--acc:#F4631F;
   --ink:#0F2830;--text:#222;--text-muted:#5b6a6f;--cream:#FCF8F3;--bg:#F9F9F9;--white:#fff;
-  --secondary:#C7EAEF;--mint:#DCF2F5;
-  --ff:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --secondary:#C7EAEF;--mint:#DCF2F5;--ok:#0E7C8B;--err:#C0392B;
+  --ff:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --pill:999px;--radius:1rem;--radius-xs:.5rem;--ease:cubic-bezier(.22,1,.36,1);
   --shadow:0 10px 30px rgba(15,40,48,.10);--px:clamp(1.1rem,4vw,1.25rem);
 }
@@ -21,12 +24,12 @@
 html,body{margin:0}
 body{font-family:var(--ff);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-h1,h2,h3{line-height:1.12;letter-spacing:-.02em;color:var(--ink);font-weight:900;margin:0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em;color:var(--ink);font-weight:800;margin:0}
 img{display:block;max-width:100%}
 
 .rv-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem var(--px);
   background:var(--white);box-shadow:0 1px 6px rgba(0,0,0,.06);position:sticky;top:0;z-index:10}
-.rv-brand{display:flex;align-items:center;gap:.6rem;font-weight:900;font-size:1.1rem;color:var(--ink)}
+.rv-brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.1rem;color:var(--ink);text-decoration:none}
 .rv-brand img{height:32px;width:auto}
 .rv-back{font-weight:700;font-size:.92rem;color:var(--p);text-decoration:none}
 .rv-back:hover{text-decoration:underline}
@@ -46,24 +49,41 @@ img{display:block;max-width:100%}
 .rv-field{display:block}
 .rv-field.rv-full{grid-column:1/-1}
 .rv-field label{display:block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.35rem}
+.rv-field label .req{color:var(--acc)}
 .rv-field input,.rv-field select,.rv-field textarea{
   width:100%;font-family:var(--ff);font-size:1rem;padding:.75rem .9rem;border:1.5px solid #d6dee0;
   border-radius:var(--radius-xs);background:var(--white);color:var(--ink)}
 .rv-field select{cursor:pointer}
 .rv-field textarea{min-height:96px;resize:vertical}
 .rv-field input:focus-visible,.rv-field select:focus-visible,.rv-field textarea:focus-visible{outline:2px solid var(--p);outline-offset:1px}
+.rv-field input.rv-invalid,.rv-field select.rv-invalid{border-color:var(--err)}
+
+/* honeypot anti-bot : invisible, hors flux, non focusable */
+.rv-hp{position:absolute!important;left:-9999px!important;top:auto;width:1px;height:1px;overflow:hidden}
 
 .rv-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;width:100%;margin-top:1.4rem;
   font-weight:700;font-size:1.06rem;padding:1rem 1.7rem;border-radius:var(--pill);border:2px solid var(--p);
   background:var(--p);color:#fff;cursor:pointer;text-decoration:none;transition:background-color .25s var(--ease),transform .25s var(--ease)}
 .rv-btn:hover{background:var(--p-hover);border-color:var(--p-border);transform:translateY(-2px)}
+.rv-btn[disabled]{opacity:.6;cursor:wait;transform:none}
 .rv-note{margin-top:1rem;font-size:.86rem;color:var(--text-muted);text-align:center}
-.rv-note a{color:var(--p);font-weight:600}
 
 .rv-facts{display:flex;flex-wrap:wrap;gap:.5rem .7rem;margin:0 0 1.4rem;padding:0;list-style:none}
 .rv-facts li{background:var(--mint);color:var(--p-border);font-weight:600;font-size:.82rem;padding:.4rem .9rem;border-radius:var(--pill)}
 
+.rv-status{margin-top:1rem;padding:.9rem 1.1rem;border-radius:var(--radius-xs);font-weight:600;display:none}
+.rv-status.is-on{display:block}
+.rv-status--ok{background:var(--mint);color:var(--ok);border:1.5px solid var(--ok)}
+.rv-status--err{background:#fdecea;color:var(--err);border:1.5px solid var(--err)}
+
+.rv-done{display:none;text-align:center;padding:1rem 0}
+.rv-done.is-on{display:block}
+.rv-done h2{font-size:1.5rem;margin-bottom:.6rem}
+.rv-done .rv-ref{display:inline-block;margin:.6rem 0;font-weight:800;font-size:1.1rem;color:var(--p);
+  background:var(--mint);padding:.5rem 1rem;border-radius:var(--pill)}
+
 .rv-footer{padding:1.6rem var(--px);text-align:center;color:var(--text-muted);font-size:.85rem}
+.rv-footer a{color:var(--p);font-weight:600}
 </style>
 </head>
 <body>
@@ -80,29 +100,29 @@ img{display:block;max-width:100%}
   <div class="rv-wrap">
     <span class="rv-label">Réservation</span>
     <h1>Réservez votre <em>session eFoil</em></h1>
-    <p>Choisissez le lieu, la formule et l'horaire. On vous recontacte pour confirmer la disponibilité — matériel, combinaison et moniteur inclus.</p>
+    <p>Choisissez le lieu, la formule, la date et l'horaire. On vous recontacte pour confirmer la disponibilité — matériel, combinaison et moniteur inclus.</p>
   </div>
 </section>
 
 <main class="rv-main">
-  <form class="rv-card" id="rv-form">
+  <form class="rv-card" id="rv-form" novalidate>
     <ul class="rv-facts">
       <li>Durée 1 h – 1 h 30</li>
       <li>Dès 100 €/session</li>
-      <li>Tous niveaux</li>
+      <li>Tous niveaux · tarif réduit -16 ans</li>
     </ul>
 
     <div class="rv-grid">
       <div class="rv-field">
         <label for="rv-lieu">Lieu</label>
-        <select id="rv-lieu" name="lieu">
+        <select id="rv-lieu">
           <option>La Croix-Valmer · plage de Gigaro</option>
           <option>Beauvallon · Grimaud</option>
         </select>
       </div>
       <div class="rv-field">
         <label for="rv-formule">Formule</label>
-        <select id="rv-formule" name="formule">
+        <select id="rv-formule">
           <option>Découverte — 150 €</option>
           <option>Pack 3 sessions — 360 €</option>
           <option>Pack 5 sessions — 500 €</option>
@@ -110,80 +130,167 @@ img{display:block;max-width:100%}
         </select>
       </div>
       <div class="rv-field">
-        <label for="rv-date">Date souhaitée</label>
-        <input type="date" id="rv-date" name="date">
+        <label for="rv-date">Date <span class="req">*</span></label>
+        <input type="date" id="rv-date">
       </div>
       <div class="rv-field">
-        <label for="rv-horaire">Horaire</label>
-        <select id="rv-horaire" name="horaire">
-          <option>15 h 00</option>
-          <option>16 h 30</option>
-          <option>18 h 00</option>
+        <label for="rv-slot">Horaire <span class="req">*</span></label>
+        <select id="rv-slot">
+          <option value="15:00">15 h 00</option>
+          <option value="16:30">16 h 30</option>
+          <option value="18:00">18 h 00</option>
         </select>
       </div>
       <div class="rv-field">
-        <label for="rv-nom">Votre nom</label>
-        <input type="text" id="rv-nom" name="nom" autocomplete="name" placeholder="Prénom Nom">
+        <label for="rv-participants">Participants</label>
+        <input type="number" id="rv-participants" min="1" max="12" step="1" value="1" inputmode="numeric">
       </div>
       <div class="rv-field">
-        <label for="rv-tel">Téléphone</label>
-        <input type="tel" id="rv-tel" name="tel" autocomplete="tel" placeholder="06 ..">
+        <label for="rv-level">Niveau</label>
+        <select id="rv-level">
+          <option>Débutant</option>
+          <option>Intermédiaire</option>
+          <option>Confirmé</option>
+        </select>
+      </div>
+      <div class="rv-field">
+        <label for="rv-name">Votre nom <span class="req">*</span></label>
+        <input type="text" id="rv-name" autocomplete="name" placeholder="Prénom Nom">
+      </div>
+      <div class="rv-field">
+        <label for="rv-phone">Téléphone</label>
+        <input type="tel" id="rv-phone" autocomplete="tel" placeholder="06 ..">
       </div>
       <div class="rv-field rv-full">
         <label for="rv-email">Email</label>
-        <input type="email" id="rv-email" name="email" autocomplete="email" placeholder="vous@email.fr">
+        <input type="email" id="rv-email" autocomplete="email" placeholder="vous@email.fr">
       </div>
       <div class="rv-field rv-full">
-        <label for="rv-msg">Message (optionnel)</label>
-        <textarea id="rv-msg" name="message" placeholder="Nombre de participants, niveau, questions…"></textarea>
+        <label for="rv-message">Message (optionnel)</label>
+        <textarea id="rv-message" placeholder="Niveau, occasion, questions…"></textarea>
+      </div>
+
+      <!-- honeypot anti-bot : ne pas remplir -->
+      <div class="rv-hp" aria-hidden="true">
+        <label for="rv-hp">Ne pas remplir</label>
+        <input type="text" id="rv-hp" name="company" tabindex="-1" autocomplete="off">
       </div>
     </div>
 
-    <button type="submit" class="rv-btn">Envoyer ma demande</button>
-    <p class="rv-note">Confirmation par email ou téléphone. Aucun paiement à cette étape.</p>
+    <div class="rv-status" id="rv-status" role="alert"></div>
+    <button type="submit" class="rv-btn" id="rv-submit">Envoyer ma demande</button>
+    <p class="rv-note">Confirmation par téléphone ou email. Aucun paiement à cette étape.</p>
   </form>
+
+  <div class="rv-card rv-done" id="rv-done">
+    <h2>Demande envoyée ✅</h2>
+    <p>Merci ! Nous revenons vers vous très vite pour confirmer votre créneau.</p>
+    <p>Votre référence : <span class="rv-ref" id="rv-done-ref"></span></p>
+    <p style="margin-top:1rem"><a class="rv-btn" style="max-width:280px;margin-inline:auto" href="index.html">Retour au site</a></p>
+  </div>
 </main>
 
 <footer class="rv-footer">
-  © <span id="rv-year">2026</span> eFoil Croix-Valmer · Plage de Gigaro &amp; Beauvallon
+  © <span id="rv-year">2026</span> eFoil Croix-Valmer · Plage de Gigaro &amp; Beauvallon ·
+  <a href="tel:+33749197038">07 49 19 70 38</a>
 </footer>
 
 <script>
 (function(){
-  var y=document.getElementById('rv-year');if(y){var d=new Date();if(!isNaN(d))y.textContent=d.getFullYear();}
+  /* ════════════════════════════════════════════════════════════════════
+     ENDPOINT — dashboard MUTUALISÉ Beauvallon + Croix-Valmer (un seul dashboard).
+     ⚠️ NE PAS "corriger" le domaine : « efoil-beauvallon » est VOULU.
+     ⚠️ NE PAS retirer « ?site=croixvalmer » (sinon la résa serait classée Beauvallon).
+     Vérif : la résa apparaît sur https://resa.efoil-beauvallon.fr → bouton « eFoil Croix-Valmer ».
+     ════════════════════════════════════════════════════════════════════ */
+  var storeEndpoint = 'https://resa.efoil-beauvallon.fr/api/reservations?site=croixvalmer';
 
-  /* Pré-sélection « Bon cadeau » si on arrive depuis le bouton Offrir (reservation.html?offrir=1) */
+  var y=document.getElementById('rv-year'); if(y){ var dy=new Date(); if(!isNaN(dy)) y.textContent=dy.getFullYear(); }
+
+  /* Réf. générée côté client : ECV-AAMMJJ-XX99 (conservée telle quelle) */
+  function pad2(n){ return (n<10?'0':'')+n; }
+  function genRef(){
+    var d=new Date();
+    var ymd=String(d.getFullYear()).slice(2)+pad2(d.getMonth()+1)+pad2(d.getDate());
+    var L='ABCDEFGHIJKLMNOPQRSTUVWXYZ', D='0123456789';
+    var r=L[Math.floor(Math.random()*26)]+L[Math.floor(Math.random()*26)]
+         +D[Math.floor(Math.random()*10)]+D[Math.floor(Math.random()*10)];
+    return 'ECV-'+ymd+'-'+r;
+  }
+  var ref=genRef();
+
+  /* Pré-sélection « Bon cadeau » depuis reservation.html?offrir=1 */
   try{
     if(/[?&]offrir=1/.test(location.search)){
-      var f=document.getElementById('rv-formule');
-      for(var i=0;i<f.options.length;i++){ if(/cadeau/i.test(f.options[i].text)){ f.selectedIndex=i; break; } }
+      var fo=document.getElementById('rv-formule');
+      for(var i=0;i<fo.options.length;i++){ if(/cadeau/i.test(fo.options[i].text)){ fo.selectedIndex=i; break; } }
     }
   }catch(e){}
 
-  /* À DÉFAUT de back-end : on compose un email de demande pré-rempli. */
-  var DEST='contact@efoil-croix-valmer.fr'; /* TODO: remplacer par la vraie adresse */
   var form=document.getElementById('rv-form');
+  var statusEl=document.getElementById('rv-status');
+  var btn=document.getElementById('rv-submit');
+  var val=function(id){ var el=document.getElementById(id); return el?String(el.value||'').trim():''; };
+
+  function showStatus(msg,kind){
+    statusEl.textContent=msg;
+    statusEl.className='rv-status is-on '+(kind==='err'?'rv-status--err':'rv-status--ok');
+  }
+  function markInvalid(id,bad){
+    var el=document.getElementById(id); if(el) el.classList.toggle('rv-invalid',!!bad);
+  }
+
   form.addEventListener('submit',function(ev){
     ev.preventDefault();
-    var g=function(id){return (document.getElementById(id)||{}).value||'';};
-    var sujet='Demande de réservation eFoil — '+g('rv-formule');
-    var corps=[
-      'Bonjour,',
-      '',
-      'Je souhaite réserver une session eFoil :',
-      '• Lieu : '+g('rv-lieu'),
-      '• Formule : '+g('rv-formule'),
-      '• Date : '+(g('rv-date')||'à définir'),
-      '• Horaire : '+g('rv-horaire'),
-      '',
-      'Mes coordonnées :',
-      '• Nom : '+g('rv-nom'),
-      '• Téléphone : '+g('rv-tel'),
-      '• Email : '+g('rv-email'),
-      '',
-      (g('rv-msg')? 'Message : '+g('rv-msg')+'\n\n' : '')+'Merci !'
-    ].join('\n');
-    window.location.href='mailto:'+DEST+'?subject='+encodeURIComponent(sujet)+'&body='+encodeURIComponent(corps);
+
+    /* Champs obligatoires : name, date, slot (sinon 422 côté API) */
+    var name=val('rv-name'), date=val('rv-date'), slot=val('rv-slot');
+    markInvalid('rv-name',!name); markInvalid('rv-date',!date); markInvalid('rv-slot',!slot);
+    if(!name || !date || !slot){
+      showStatus('Merci de renseigner au minimum : votre nom, la date et l’horaire.','err');
+      return;
+    }
+
+    var lieu=val('rv-lieu');
+    var userMsg=val('rv-message');
+    var message=(lieu? '[Lieu : '+lieu+'] ' : '')+userMsg;
+    var participants=parseInt(val('rv-participants'),10); if(isNaN(participants)||participants<1) participants=1;
+
+    var payload={
+      ref:        ref,
+      name:       name,
+      email:      val('rv-email'),
+      phone:      val('rv-phone'),
+      formule:    val('rv-formule'),
+      date:       date,                 /* AAAA-MM-JJ (input date) */
+      slot:       slot,                 /* ex. 15:00 */
+      participants: participants,       /* entier */
+      level:      val('rv-level'),
+      message:    message,
+      hp:         val('rv-hp'),          /* honeypot : si rempli, l'API enregistre rien */
+      createdAt:  new Date().toISOString()
+    };
+
+    btn.disabled=true; btn.textContent='Envoi…';
+
+    /* Requête « simple » volontaire : pas de préflight CORS, réponse non lue.
+       NE PAS passer en application/json. */
+    fetch(storeEndpoint, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(){
+      form.style.display='none';
+      document.getElementById('rv-done-ref').textContent=ref;
+      document.getElementById('rv-done').classList.add('is-on');
+      window.scrollTo({top:0,behavior:'smooth'});
+    })
+    .catch(function(){
+      btn.disabled=false; btn.textContent='Envoyer ma demande';
+      showStatus('Envoi impossible pour le moment. Réessayez, ou appelez le 07 49 19 70 38.','err');
+    });
   });
 })();
 </script>

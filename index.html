@@ -8,6 +8,9 @@
 <meta name="description" content="Location & initiation eFoil à la plage de Gigaro, La Croix-Valmer. Volez en silence sur les eaux translucides du Cap Lardier. Débutants bienvenus, moniteur dédié, matériel Lift. Réservation.">
 <link rel="canonical" href="https://efoil-croix-valmer.fr/">
 <meta name="theme-color" content="#0892A5">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
@@ -28,11 +31,7 @@
 -->
 
 <style>
-/* @font-face Inter — self-host (mêmes fichiers que le site ; local() en repli) */
-@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:local("Inter"),url("assets/fonts/inter-400.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:local("Inter SemiBold"),url("assets/fonts/inter-600.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:local("Inter Bold"),url("assets/fonts/inter-700.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-style:normal;font-weight:900;font-display:swap;src:local("Inter Black"),url("assets/fonts/inter-900.woff2") format("woff2")}
+/* Polices : pile système (même rendu partout, Inter retiré) */
 html,body{margin:0}
 </style>
 </head>
@@ -53,7 +52,7 @@ html,body{margin:0}
   --cream:#FCF8F3;--bg:#F9F9F9;--white:#fff;--ink:#0F2830;
   --text:#222;--text-muted:#5b6a6f;--on-p:#fff;--star:#F4631F;
 
-  --ff:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ff:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --fs-display:clamp(2.4rem,1.4rem + 4.2vw,4.6rem);
   --fs-h2:clamp(1.8rem,1.2rem + 2.4vw,3rem);
   --fs-lead:clamp(1.06rem,1rem + .4vw,1.28rem);
@@ -546,17 +545,7 @@ html,body{margin:0}
     </div>
   </section>
 
-  <!-- ═══════ 10 · AVIS ═══════ -->
-  <section class="cvx-section" aria-labelledby="cvx-avis-h">
-    <div class="cvx-container">
-      <div class="cvx-head cvx-head--center cvx-reveal"><p class="cvx-label">Ils ont volé</p><h2 id="cvx-avis-h">L'avis de nos riders</h2></div>
-      <div class="cvx-reviews">
-        <figure class="cvx-review cvx-reveal"><div class="cvx-review__stars" aria-hidden="true">★★★★★</div><p>« {{AVIS_1}} — verbatim Google réel à insérer. »</p><cite>{{CLIENT_1}}</cite></figure>
-        <figure class="cvx-review cvx-reveal"><div class="cvx-review__stars" aria-hidden="true">★★★★★</div><p>« {{AVIS_2}} — verbatim Google réel à insérer. »</p><cite>{{CLIENT_2}}</cite></figure>
-        <figure class="cvx-review cvx-reveal"><div class="cvx-review__stars" aria-hidden="true">★★★★★</div><p>« {{AVIS_3}} — verbatim Google réel à insérer. »</p><cite>{{CLIENT_3}}</cite></figure>
-      </div>
-    </div>
-  </section>
+  <!-- ═══════ 10 · AVIS (section retirée — en attente de vrais avis Google) ═══════ -->
 
   <!-- ═══════ 11 · RÉSERVATION ═══════ -->
   <section class="cvx-section" id="cvx-book" aria-labelledby="cvx-book-h">
@@ -591,7 +580,7 @@ html,body{margin:0}
         <details><summary>Combien de temps dure une session ?</summary><div class="cvx-faq__a">Comptez 1 h à 1 h 30 sur place, briefing compris. Le temps de vol effectif dépend du niveau et de l'autonomie de la batterie.</div></details>
         <details><summary>Que se passe-t-il en cas de mauvais temps ?</summary><div class="cvx-faq__a">La sécurité prime. En cas de conditions défavorables, la session est reportée ou remboursée. Nous vous tenons informé la veille si besoin.</div></details>
         <details><summary>Comment accéder à la base ? Y a-t-il un parking ?</summary><div class="cvx-faq__a">La base se situe au départ de la plage de Gigaro, à La Croix-Valmer. Des parkings sont à proximité ; le point de rendez-vous exact vous est précisé à la réservation. Gigaro est très fréquentée l'été : venez tôt.</div></details>
-        <details><summary>Y a-t-il un âge minimum ?</summary><div class="cvx-faq__a">L'eFoil est ouvert à partir de {{ÂGE_MINI}} ans, sous conditions (autorisation parentale pour les mineurs, aisance dans l'eau). Contactez-nous pour les cas particuliers.</div></details>
+        <details><summary>Les jeunes peuvent-ils en faire ?</summary><div class="cvx-faq__a">Oui, l'eFoil est accessible à tous, sous conditions (aisance dans l'eau, autorisation parentale pour les mineurs). Les moins de 16 ans bénéficient d'un tarif réduit — contactez-nous.</div></details>
       </div>
     </div>
   </section>
@@ -604,8 +593,8 @@ html,body{margin:0}
           <b><i>e</i>Foil · Croix-Valmer</b>
           <p style="margin-top:.8rem;max-width:34ch;color:#dfe8ea">Location &amp; initiation d'eFoil à la plage de Gigaro, La Croix-Valmer — sud du golfe de Saint-Tropez, réserve du Cap Lardier.</p>
         </div>
-        <div><h4>Coordonnées</h4><ul><li>Plage de Gigaro</li><li>83420 La Croix-Valmer</li><li>Réserve du Cap Lardier</li><li><a href="tel:{{TÉLÉPHONE_E164}}">{{TÉLÉPHONE}}</a></li><li><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li></ul></div>
-        <div><h4>Horaires &amp; liens</h4><ul><li>Sur réservation · 7j/7</li><li>Saison : {{HORAIRES}}</li><li><a href="{{LIEN_INSTAGRAM}}">Instagram</a></li><li><a href="{{LIEN_FICHE_GOOGLE}}">Fiche Google</a></li><li><a href="{{LIEN_MENTIONS}}">Mentions légales</a></li></ul></div>
+        <div><h4>Coordonnées</h4><ul><li>Plage de Gigaro</li><li>83420 La Croix-Valmer</li><li>Réserve du Cap Lardier</li><li><a href="tel:+33749197038">07 49 19 70 38</a></li><li><a href="mailto:Contact@efoilcotedazur.com">Contact@efoilcotedazur.com</a></li></ul></div>
+        <div><h4>Infos &amp; réservation</h4><ul><li>Sur réservation · 7j/7</li><li>Créneaux : 15 h · 16 h 30 · 18 h</li><li><a href="reservation.html">Réserver en ligne</a></li></ul></div>
       </div>
       <div class="cvx-footer__bot">
         <p>© <span id="cvx-year">2026</span> eFoil Croix-Valmer · Tous droits réservés. La réserve du Cap Lardier est un espace protégé ; pratique encadrée et respectueuse du site.</p>
@@ -615,21 +604,21 @@ html,body{margin:0}
   </footer>
 
   <!-- Sticky CTA mobile -->
-  <div class="cvx-sticky"><a class="cvx-btn cvx-btn--ghost" style="color:var(--ink);border-color:#cfd8da" href="tel:{{TÉLÉPHONE_E164}}">Appeler</a><a class="cvx-btn cvx-btn--primary" href="#cvx-book">Réserver</a></div>
+  <div class="cvx-sticky"><a class="cvx-btn cvx-btn--ghost" style="color:var(--ink);border-color:#cfd8da" href="tel:+33749197038">Appeler</a><a class="cvx-btn cvx-btn--primary" href="#cvx-book">Réserver</a></div>
 
 </div><!-- /.cvx-root -->
 
 <!-- ═══ JSON-LD : SportsActivityLocation + FAQPage ═══ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":["LocalBusiness","SportsActivityLocation"],"@id":"https://efoil-croix-valmer.fr/#base","name":"eFoil Croix-Valmer — plage de Gigaro","description":"Location et initiation d'eFoil encadrées au départ de la plage de Gigaro, La Croix-Valmer — sud du golfe de Saint-Tropez, réserve du Cap Lardier.","url":"https://efoil-croix-valmer.fr/","image":"https://efoil-croix-valmer.fr/medias/web/cv/hero-bleu.webp","telephone":"{{TÉLÉPHONE}}","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Plage de Gigaro","addressLocality":"La Croix-Valmer","postalCode":"83420","addressRegion":"Var","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":43.1856,"longitude":6.5639},"areaServed":"Sud du golfe de Saint-Tropez · Gigaro · Cap Lardier","sameAs":["{{LIEN_INSTAGRAM}}","{{LIEN_FICHE_GOOGLE}}"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"19:00"}]},
+{"@type":["LocalBusiness","SportsActivityLocation"],"@id":"https://efoil-croix-valmer.fr/#base","name":"eFoil Croix-Valmer — plage de Gigaro","description":"Location et initiation d'eFoil encadrées au départ de la plage de Gigaro, La Croix-Valmer — sud du golfe de Saint-Tropez, réserve du Cap Lardier.","url":"https://efoil-croix-valmer.fr/","image":"https://efoil-croix-valmer.fr/medias/web/cv/hero-bleu.webp","telephone":"07 49 19 70 38","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Plage de Gigaro","addressLocality":"La Croix-Valmer","postalCode":"83420","addressRegion":"Var","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":43.1856,"longitude":6.5639},"areaServed":"Sud du golfe de Saint-Tropez · Gigaro · Cap Lardier","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"19:00"}]},
 {"@type":"FAQPage","@id":"https://efoil-croix-valmer.fr/#faq","mainEntity":[
 {"@type":"Question","name":"Combien coûte une session ?","acceptedAnswer":{"@type":"Answer","text":"Une session débute à 150 €, matériel et encadrement compris. Le tarif varie selon la durée et la formule."}},
 {"@type":"Question","name":"Faut-il déjà savoir foiler ?","acceptedAnswer":{"@type":"Answer","text":"Non. La session est accessible aux débutants, accompagnés par un moniteur. La plupart des riders volent leurs premiers mètres dès la première séance."}},
 {"@type":"Question","name":"Combien de temps dure une session ?","acceptedAnswer":{"@type":"Answer","text":"Comptez 1 h à 1 h 30 sur place, briefing compris."}},
 {"@type":"Question","name":"Que se passe-t-il en cas de mauvais temps ?","acceptedAnswer":{"@type":"Answer","text":"La sécurité prime. En cas de conditions défavorables, la session est reportée ou remboursée."}},
 {"@type":"Question","name":"Comment accéder à la base ? Y a-t-il un parking ?","acceptedAnswer":{"@type":"Answer","text":"La base se situe au départ de la plage de Gigaro, à La Croix-Valmer. Des parkings sont à proximité ; le point de rendez-vous exact vous est précisé à la réservation."}},
-{"@type":"Question","name":"Y a-t-il un âge minimum ?","acceptedAnswer":{"@type":"Answer","text":"L'eFoil est ouvert à partir de {{ÂGE_MINI}} ans, sous conditions."}}
+{"@type":"Question","name":"Les jeunes peuvent-ils en faire ?","acceptedAnswer":{"@type":"Answer","text":"Oui, l'eFoil est accessible à tous, sous conditions (aisance dans l'eau, autorisation parentale pour les mineurs). Les moins de 16 ans bénéficient d'un tarif réduit."}}
 ]}
 ]}
 </script>
