@@ -58,8 +58,7 @@ img{display:block;max-width:100%}
 .rv-field input:focus-visible,.rv-field select:focus-visible,.rv-field textarea:focus-visible{outline:2px solid var(--p);outline-offset:1px}
 .rv-field input.rv-invalid,.rv-field select.rv-invalid{border-color:var(--err)}
 
-/* honeypot anti-bot : invisible, hors flux, non focusable */
-.rv-hp{position:absolute!important;left:-9999px!important;top:auto;width:1px;height:1px;overflow:hidden}
+/* honeypot : masqué via display:none directement dans le formulaire (anti-autofill) */
 
 .rv-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;width:100%;margin-top:1.4rem;
   font-weight:700;font-size:1.06rem;padding:1rem 1.7rem;border-radius:var(--pill);border:2px solid var(--p);
@@ -169,10 +168,9 @@ img{display:block;max-width:100%}
         <textarea id="rv-message" placeholder="Niveau, occasion, questions…"></textarea>
       </div>
 
-      <!-- honeypot anti-bot : ne pas remplir -->
-      <div class="rv-hp" aria-hidden="true">
-        <label for="rv-hp">Ne pas remplir</label>
-        <input type="text" id="rv-hp" name="company" tabindex="-1" autocomplete="off">
+      <!-- piege anti-bot : invisible, ne pas remplir (display:none = quasi jamais auto-rempli par les navigateurs ; nom neutre sans sémantique autofill) -->
+      <div style="display:none" aria-hidden="true">
+        <input type="text" id="rv-hp" name="hp_token" tabindex="-1" autocomplete="off" value="">
       </div>
     </div>
 
