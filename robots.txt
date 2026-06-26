@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Bots des IA de recherche (laissés ouverts pour la visibilité GEO)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+Sitemap: https://efoil-croix-valmer.fr/sitemap.xml
