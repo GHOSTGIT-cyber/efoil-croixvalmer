@@ -107,6 +107,7 @@ img{display:block;max-width:100%}
   <form class="rv-card" id="rv-form" novalidate>
     <ul class="rv-facts">
       <li>Durée 1 h – 1 h 30</li>
+      <li>2 personnes minimum</li>
       <li>Dès 100 €/session</li>
       <li>Tous niveaux · tarif réduit -16 ans</li>
     </ul>
@@ -140,8 +141,8 @@ img{display:block;max-width:100%}
         </select>
       </div>
       <div class="rv-field">
-        <label for="rv-participants">Participants</label>
-        <input type="number" id="rv-participants" min="1" max="12" step="1" value="1" inputmode="numeric">
+        <label for="rv-participants">Participants (2 minimum)</label>
+        <input type="number" id="rv-participants" min="2" max="12" step="1" value="2" inputmode="numeric">
       </div>
       <div class="rv-field">
         <label for="rv-level">Niveau</label>
@@ -292,7 +293,7 @@ img{display:block;max-width:100%}
     var lieu=val('rv-lieu');
     var userMsg=val('rv-message');
     var message=(lieu? '[Lieu : '+lieu+'] ' : '')+userMsg;
-    var participants=parseInt(val('rv-participants'),10); if(isNaN(participants)||participants<1) participants=1;
+    var participants=parseInt(val('rv-participants'),10); if(isNaN(participants)||participants<2) participants=2; /* 2 personnes minimum */
 
     var payload={
       ref:        ref,
