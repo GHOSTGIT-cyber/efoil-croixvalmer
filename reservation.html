@@ -216,6 +216,38 @@ img{display:block;max-width:100%}
   }
   var ref=genRef();
 
+  /* ════════════════════════════════════════════════════════════════════
+     DÉLAI MINIMUM DE RÉSERVATION — ni aujourd'hui, ni les 2 jours suivants.
+     Premier jour réservable = J+3 (ex. le 16/07 → premier créneau le 19/07).
+     Fuseau : Europe/Paris (pas UTC), sinon la bascule de jour serait fausse
+     le soir en heure d'été.
+     ════════════════════════════════════════════════════════════════════ */
+  var BOOKING_LEAD_DAYS = 3;
+  function todayParis(){
+    try{
+      /* 'en-CA' donne directement le format AAAA-MM-JJ */
+      return new Intl.DateTimeFormat('en-CA',{ timeZone:'Europe/Paris',
+        year:'numeric', month:'2-digit', day:'2-digit' }).format(new Date());
+    }catch(e){                       /* repli : heure locale du poste */
+      var n=new Date();
+      return n.getFullYear()+'-'+pad2(n.getMonth()+1)+'-'+pad2(n.getDate());
+    }
+  }
+  function minBookingDate(daysAhead){
+    var d=new Date(todayParis()+'T00:00:00');   /* minuit local → pas de dérive TZ */
+    d.setDate(d.getDate()+daysAhead);
+    return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+  }
+  function frDate(ymd){
+    try{
+      return new Intl.DateTimeFormat('fr-FR',{ day:'numeric', month:'long', year:'numeric' })
+        .format(new Date(ymd+'T00:00:00'));
+    }catch(e){ return ymd; }
+  }
+  var MIN_DATE=minBookingDate(BOOKING_LEAD_DAYS);
+  var dateEl=document.getElementById('rv-date');
+  if(dateEl){ dateEl.min=MIN_DATE; }   /* bloque le sélecteur ; le filet JS est à la soumission */
+
   /* Pré-sélection « Bon cadeau » depuis reservation.html?offrir=1 */
   try{
     if(/[?&]offrir=1/.test(location.search)){
@@ -245,6 +277,15 @@ img{display:block;max-width:100%}
     markInvalid('rv-name',!name); markInvalid('rv-date',!date); markInvalid('rv-slot',!slot);
     if(!name || !date || !slot){
       showStatus('Merci de renseigner au minimum : votre nom, la date et l’horaire.','err');
+      return;
+    }
+
+    /* Filet de sécurité du délai minimum : l'attribut `min` bloque le sélecteur,
+       mais certains claviers/mobiles laissent saisir une date antérieure. */
+    if(date < MIN_DATE){            /* comparaison sûre : AAAA-MM-JJ est ordonnable */
+      markInvalid('rv-date',true);
+      showStatus('Réservations possibles à partir du '+frDate(MIN_DATE)+'. Merci de prévoir un délai de 2 jours.','err');
+      if(dateEl){ dateEl.focus(); }
       return;
     }
 
