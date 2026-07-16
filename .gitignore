@@ -35,8 +35,5 @@ node_modules/
 .env
 .env.local
 
-# === WordPress local ===
-wordpress/*.log
-
 # === Videos lourdes : hors git (hebergement externe / Git LFS au deploiement) ===
 assets/video/

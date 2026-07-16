@@ -26,7 +26,7 @@
   DA hybride : hero cinématique full-bleed + système de marque EFCA
   (Inter, bleu #0892A5 + accent orange #F4631F, boutons pilule, rating bar, vagues).
   Imagerie : 100 % VUES AÉRIENNES (curation efca-photo-tri.json → medias/web/cv/).
-  Bloc autonome wp:html (entre les marqueurs DÉBUT / FIN). N'altère aucun fichier existant.
+  Site statique autonome (pas de CMS). Réservation : voir reservation.html.
   ════════════════════════════════════════════════════════════════════════════
 -->
 
@@ -37,7 +37,6 @@ html,body{margin:0}
 </head>
 <body>
 
-<!-- ═══════════════════ ===== BLOC wp:html — DÉBUT ===== ═══════════════════ -->
 <script>(function(){try{var r=document.documentElement;r.classList.remove('cvx-no-js');r.classList.add('cvx-js');}catch(e){}})();</script>
 
 <style>
@@ -565,8 +564,6 @@ html,body{margin:0}
           <div class="cvx-book__panel">
             <h3>Disponibilités</h3>
             <p>Sélectionnez une date et un horaire. Confirmation immédiate.</p>
-            <!-- BOOKING_BLOCK — brancher le module de réservation (endpoint REST / CPT « reservation », ou Odoo). Front uniquement. -->
-            <div id="cvx-booking" aria-live="polite"></div>
             <a class="cvx-btn cvx-btn--primary cvx-btn--block" href="reservation.html">Réserver une session</a>
           </div>
         </div>
@@ -612,6 +609,7 @@ html,body{margin:0}
 
 </div><!-- /.cvx-root -->
 
+
 <!-- ═══ JSON-LD : SportsActivityLocation + FAQPage ═══ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -656,6 +654,5 @@ html,body{margin:0}
   /* (édition bleue : plus de bascule de thème) */
 })();
 </script>
-<!-- ═══════════════════ ===== BLOC wp:html — FIN ===== ═══════════════════ -->
 </body>
 </html>
